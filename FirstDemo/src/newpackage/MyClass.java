@@ -16,6 +16,7 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class MyClass {
 	 private static NgWebDriver ngDriver;
+	 static Alert alert;
 	public static void main(String[] args) throws InterruptedException {
 		 System.setProperty("webdriver.gecko.driver", "/Users/prajakta/Downloads/geckodriver");;
 		WebDriver driver = new FirefoxDriver();
@@ -53,7 +54,6 @@ public class MyClass {
 	
 	WebElement marker2 = driver.findElement(By.xpath("//div[@class='gm-style']/div/div[3]/div/div/div/img[@src='https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png']"));
 	
-//	ngDriver.waitForAngularRequestsToFinish();
 		 
 	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", marker2);
 	
@@ -65,11 +65,9 @@ public class MyClass {
 		
 		System.out.println("Not available");
 	}
-//   Alert alert;
-//	   alert=driver.switchTo().alert();
-//	   alert.accept();
-//	   
-//	   
+
+   alert = driver.switchTo().alert();
+   alert.dismiss();
 	   
 	  // Thread.sleep(9000);
 		
